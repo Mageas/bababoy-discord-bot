@@ -1,0 +1,11 @@
+version: '3.8'
+services:
+  discord:
+    image: node:21
+    restart: unless-stopped
+    volumes:
+      - .:/app
+    working_dir: /app
+    command: npx nodemon --exec "node --max-old-space-size=1024 bot.js"
+    env_file:
+      - .env
